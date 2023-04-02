@@ -1,5 +1,6 @@
 import os
 
+
 def main(app_name):
     if app_name not in os.popen('ls').read().split("\n"):
         os.system(f"python manage.py startapp {app_name.strip()}")
@@ -29,8 +30,9 @@ def static_templates(app_name):
         os.mkdir(f"{app_name}/templates/{app_name}")
     
         with open(f"{app_name}/templates/{app_name}/index.html", "w") as file:
+            
             file.write("")
-            file.write('{% load static %}\n\n' + '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' + """    <link rel="stylesheet" href="{% static """ + f""" '{app_name}/css/style.css' %""" + '}">' + f'\n    <title> {app_name} - index </title>\n</head>\n<body>\n    \n</body>\n</html>')
+            file.write('{% load static %}\n\n' + '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' + """    <link rel="stylesheet" href="{% static """ + f""" '{app_name}/css/style.css' %""" + '}">' + f'\n    <title> {app_name} - index </title>\n</head>\n<body>\n  <h1> Barev </h1>  \n</body>\n</html>')
         
         print(f"{app_name} --> Templates created")
         
@@ -125,6 +127,7 @@ def app_views(app_name):
 
 # ============================================================================================================================
 
+
 def pattern_transfer(path):
     print()
     for i in path:
@@ -180,6 +183,7 @@ if __name__ == "__main__":
         main(input("Enter app name: "))
     
      
+
 
 
 
